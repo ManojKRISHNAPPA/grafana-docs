@@ -58,3 +58,28 @@ sudo systemctl status node_exporter
 sudo firewall-cmd --zone=public --add-port=9100/tcp --permanent
 sudo systemctl restart firewalld
 ```
+
+# Stress Test
+```
+sudo amazon-linux-extras install epel -y
+sudo yum install stress -y
+```
+```
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+nohup sudo stress --cpu 8 -v --timeout 30000 &
+```
+
+Killing stress process:
+```
+for i in $(ps -ef|grep -i stress|awk '{print $2}'); do kill -9 $i; done
+```
+```
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head
+```
+
