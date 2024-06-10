@@ -45,7 +45,10 @@ ExecStart=/usr/local/bin/node_exporter --web.listen-address=:9100
 [Install]
 WantedBy=multi-user.target
 ```
-
+# Move Node_exporter file to 
+```
+mv node_exporter /usr/local/bin/node_exporter
+```
 # Start node_exporter service
 ```
 sudo systemctl daemon-reload
