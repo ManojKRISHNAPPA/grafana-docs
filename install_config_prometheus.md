@@ -100,7 +100,7 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['localhost:9090',"44.210.237.232:9100"]
 ```
 
 # Access Prometheus
